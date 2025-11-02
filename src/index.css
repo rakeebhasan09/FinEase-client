@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+	themes: light --default;
+}
+
+@layer base {
+	:root {
+		--color-primary: #001931;
+		--color-secondary: rgb(0, 25, 49, 0.5);
+	}
+	.container {
+		max-width: 100%;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 768px) {
+		.container {
+			max-width: 720px !important;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.container {
+			max-width: 960px !important;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.container {
+			max-width: 1140px !important;
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.container {
+			max-width: 1320px !important;
+		}
+	}
+}
+
+.navbar-start .menu-sm.dropdown-content li a {
+	font-size: 18px;
+}
