@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home/Home";
 import About from "../pages/About/About/About";
 import Profile from "../pages/Profile/Profile/Profile";
 import Contact from "../pages/Contact/Contact/Contact";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
 	{
@@ -26,15 +27,23 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "about",
-				element: <About />,
+				element: (
+					<PrivateRoutes>
+						<About />
+					</PrivateRoutes>
+				),
 			},
 			{
 				path: "profile",
-				element: <Profile />,
+				element: (
+					<PrivateRoutes>
+						<Profile />
+					</PrivateRoutes>
+				),
 			},
 			{
 				path: "contact",
-				element: <Contact />,
+				Component: Contact,
 			},
 		],
 	},

@@ -1,15 +1,26 @@
 import { use } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
 	const { googleLogin, setUser } = use(AuthContext);
+	const location = useLocation();
+	const navigate = useNavigate();
 	// Handle Google Login
 	const handleGoogleLogin = () => {
 		googleLogin()
 			.then((result) => {
 				setUser(result.user);
-				toast.success("Login Successfull!");
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "Login Successfull.",
+					showConfirmButton: false,
+					timer: 1500,
+				});
+				navigate(location?.state || "/");
 			})
 			.catch((error) => {
 				const message = error.message;

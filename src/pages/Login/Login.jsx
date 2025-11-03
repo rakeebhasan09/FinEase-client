@@ -1,12 +1,48 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../../shared/SocialLogin/SocialLogin";
+import { AuthContext } from "../../contexts/AuthContext";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Login = () => {
 	const [show, setShow] = useState(false);
+	const { emailPasswordLogin, setUser } = use(AuthContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	// Handle Login
 	const handleUserLogin = (e) => {
 		e.preventDefault();
+		const email = e.target.email.value;
+		const password = e.target.password.value;
+		if (!email || !password) {
+			toast.warn("Invalid User Credential");
+			return;
+		}
+
+		emailPasswordLogin(email, password)
+			.then((result) => {
+				e.target.reset();
+				setUser(result.user);
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "Login Successfull.",
+					showConfirmButton: false,
+					timer: 1500,
+				});
+				navigate(location?.state || "/");
+			})
+			.catch((error) => {
+				const message = error.message;
+				const modifiedMessage = message
+					.split("/")[1]
+					.replaceAll("-", " ")
+					.replace(")", "");
+				toast.error(modifiedMessage);
+			});
 	};
 	return (
 		<section className="py-10 md:py-20 lg:py-[143px]">

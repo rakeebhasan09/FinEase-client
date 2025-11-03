@@ -4,8 +4,10 @@ import {
 	createUserWithEmailAndPassword,
 	GoogleAuthProvider,
 	onAuthStateChanged,
+	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
+	updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
@@ -22,11 +24,25 @@ const AuthProvider = ({ children }) => {
 
 	// Registraion via Email & Password
 	const emailPasswordRegistration = (email, password) => {
+		setLoading(true);
 		return createUserWithEmailAndPassword(auth, email, password);
+	};
+
+	// Update DisplayName and photoURL
+	const updateUserProfile = (userInfo) => {
+		setLoading(true);
+		return updateProfile(auth.currentUser, userInfo);
+	};
+
+	// Login via Email & Password
+	const emailPasswordLogin = (email, password) => {
+		setLoading(true);
+		return signInWithEmailAndPassword(auth, email, password);
 	};
 
 	// Logout User
 	const loggedOut = () => {
+		setLoading(true);
 		return signOut(auth);
 	};
 
@@ -43,6 +59,8 @@ const AuthProvider = ({ children }) => {
 	const authInfo = {
 		googleLogin,
 		emailPasswordRegistration,
+		updateUserProfile,
+		emailPasswordLogin,
 		user,
 		setUser,
 		loading,

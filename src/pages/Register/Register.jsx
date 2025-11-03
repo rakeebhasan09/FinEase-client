@@ -8,7 +8,8 @@ import Swal from "sweetalert2";
 
 const Register = () => {
 	const [show, setShow] = useState(false);
-	const { setUser, emailPasswordRegistration } = use(AuthContext);
+	const { setUser, emailPasswordRegistration, updateUserProfile } =
+		use(AuthContext);
 	const navigate = useNavigate();
 	// Handle Registration
 	const handleRegistration = (e) => {
@@ -53,6 +54,10 @@ const Register = () => {
 		emailPasswordRegistration(email, password)
 			.then((result) => {
 				if (result.user) {
+					updateUserProfile({
+						displayName: name,
+						photoURL: photo,
+					});
 					result.user.displayName = name;
 					result.user.photoURL = photo;
 					setUser(result.user);
