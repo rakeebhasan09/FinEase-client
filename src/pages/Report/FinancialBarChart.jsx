@@ -37,13 +37,13 @@ const FinancialBarChart = () => {
 				{/* Filters */}
 				<div className="flex flex-col sm:flex-row gap-4 mb-8">
 					<div className="w-full sm:w-64">
-						<label className="block text-sm font-medium text-gray-600 mb-1">
+						<label className="block text-sm font-medium mb-1">
 							Filter by Category
 						</label>
 						<select
 							value={category}
 							onChange={(e) => setCategory(e.target.value)}
-							className="w-full border border-gray-200 rounded-lg px-3 py-2 bg-white text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+							className="w-full border dark:bg-[#1D232A] border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 						>
 							{categories.map((cat) => (
 								<option key={cat}>{cat}</option>
@@ -53,11 +53,11 @@ const FinancialBarChart = () => {
 				</div>
 
 				{/* Chart Card */}
-				<div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-					<h3 className="text-lg font-semibold text-gray-800 mb-1">
+				<div className="border border-gray-100 rounded-2xl p-6 shadow-sm">
+					<h3 className="text-lg font-semibold mb-1">
 						Income vs Expenses
 					</h3>
-					<p className="text-sm text-gray-500 mb-4">
+					<p className="text-sm mb-4">
 						Track your financial flow over time
 					</p>
 

@@ -5,7 +5,7 @@ const ProfileInfo = () => {
 
 	const { photoURL, displayName, email } = user;
 	return (
-		<div className="border border-[#E0DAD1] rounded-lg max-w-3xl mx-auto shadow-sm bg-[#FFFFFF] p-8 mt-20 mb-8">
+		<div className="border border-[#E0DAD1] rounded-lg max-w-3xl mx-auto shadow-sm p-8 mt-20 mb-8">
 			<div className="flex flex-col md:flex-row items-center md:items-start gap-6">
 				<div>
 					<img

@@ -1,10 +1,24 @@
-import React, { use } from "react";
+import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
 	const { user, loggedOut } = use(AuthContext);
+	const [theme, setTheme] = useState(
+		localStorage.getItem("theme") || "light"
+	);
+
+	useEffect(() => {
+		const html = document.querySelector("html");
+		html.setAttribute("data-theme", theme);
+		localStorage.setItem("theme", theme);
+	}, [theme]);
+
+	const handleTheme = (checked) => {
+		setTheme(checked ? "dark" : "light");
+	};
+
 	// Handle Log Out
 	const handleLogOut = () => {
 		loggedOut()
@@ -66,7 +80,7 @@ const Navbar = () => {
 		</>
 	);
 	return (
-		<header className="bg-[#FEFEFE] backdrop-blur shadow supports-backdrop-filter:bg-[rgba(254,254,254,0.8)] py-5">
+		<header className="shadow py-5">
 			<div className="container">
 				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}
@@ -94,7 +108,7 @@ const Navbar = () => {
 							</div>
 							<ul
 								tabIndex="-1"
-								className="menu menu-sm dropdown-content bg-white rounded-box z-50 mt-3 w-52 p-5 gap-4 shadow"
+								className="menu menu-sm dropdown-content bg-white dark:bg-black rounded-box z-50 mt-3 w-52 p-5 gap-4 shadow"
 							>
 								{links}
 							</ul>
@@ -136,9 +150,12 @@ const Navbar = () => {
 					{/* Menu End */}
 					<div className="navbar-end">
 						<input
+							onChange={(e) => handleTheme(e.target.checked)}
 							type="checkbox"
-							value="synthwave"
-							className="toggle theme-controller"
+							defaultChecked={
+								localStorage.getItem("theme") === "dark"
+							}
+							className="toggle"
 						/>
 						<div className="flex items-center gap-3 ml-3">
 							{user ? (
@@ -158,7 +175,7 @@ const Navbar = () => {
 									</div>
 									<ul
 										tabIndex="-1"
-										className="menu  z-50 menu-sm dropdown-content bg-white rounded-box mt-3 p-2 shadow"
+										className="menu z-50 menu-sm dropdown-content bg-white dark:bg-black rounded-box mt-3 p-2 shadow"
 									>
 										<li>
 											<a className="text-[16px]">

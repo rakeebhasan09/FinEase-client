@@ -23,13 +23,13 @@ const tips = [
 
 const BudgetingTips = () => {
 	return (
-		<section className="bg-gray-50 py-20 px-6">
+		<section className="py-20 px-6">
 			<div className="max-w-6xl mx-auto text-center">
 				{/* Heading */}
-				<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+				<h2 className="text-3xl md:text-4xl font-bold mb-3">
 					Smart Budgeting Tips
 				</h2>
-				<p className="text-gray-600 mb-12">
+				<p className="mb-12">
 					Master your money with these proven strategies
 				</p>
 
@@ -38,17 +38,17 @@ const BudgetingTips = () => {
 					{tips.map((tip, index) => (
 						<div
 							key={index}
-							className="bg-white border border-gray-200 rounded-xl p-6 text-left shadow-sm hover:shadow-md transition"
+							className="border border-gray-200 bg-white dark:bg-[#1D232A] rounded-xl p-6 text-left shadow-sm hover:shadow-md transition"
 						>
 							<div
 								className={`w-12 h-12 flex items-center justify-center rounded-xl mb-4 ${tip.bg}`}
 							>
 								{tip.icon}
 							</div>
-							<h3 className="text-lg font-semibold text-gray-900 mb-2">
+							<h3 className="text-lg font-semibold mb-2">
 								{tip.title}
 							</h3>
-							<p className="text-gray-600 text-sm leading-relaxed">
+							<p className="text-sm leading-relaxed">
 								{tip.desc}
 							</p>
 						</div>

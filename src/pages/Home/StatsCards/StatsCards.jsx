@@ -45,11 +45,9 @@ const StatsCards = () => {
 			</div>
 			<div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
 				{/* Total Balance */}
-				<div className="bg-white rounded-2xl shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
+				<div className="rounded-2xl bg-white dark:bg-[#1D232A] shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
 					<div className="flex justify-between items-start">
-						<h3 className="text-gray-600 font-medium">
-							Total Balance
-						</h3>
+						<h3 className="font-medium">Total Balance</h3>
 						<div className="bg-blue-50 p-2 rounded-xl">
 							<ArrowUpRight className="text-blue-500" size={20} />
 						</div>
@@ -61,11 +59,9 @@ const StatsCards = () => {
 				</div>
 
 				{/* Total Income */}
-				<div className="bg-white rounded-2xl shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
+				<div className="rounded-2xl bg-white dark:bg-[#1D232A] shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
 					<div className="flex justify-between items-start">
-						<h3 className="text-gray-600 font-medium">
-							Total Income
-						</h3>
+						<h3 className="font-medium">Total Income</h3>
 						<div className="bg-green-50 p-2 rounded-xl">
 							<TrendingUp className="text-green-500" size={20} />
 						</div>
@@ -77,11 +73,9 @@ const StatsCards = () => {
 				</div>
 
 				{/* Total Expenses */}
-				<div className="bg-white rounded-2xl shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
+				<div className="rounded-2xl bg-white dark:bg-[#1D232A] shadow-md p-6 w-full md:w-1/3 border border-gray-200 ">
 					<div className="flex justify-between items-start">
-						<h3 className="text-gray-600 font-medium">
-							Total Expenses
-						</h3>
+						<h3 className="font-medium">Total Expenses</h3>
 						<div className="bg-red-50 p-2 rounded-xl">
 							<TrendingDown className="text-red-500" size={20} />
 						</div>

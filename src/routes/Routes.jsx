@@ -10,6 +10,7 @@ import TransactionDetails from "../pages/TransactionDetails/TransactionDetails";
 import ProfileInfo from "../pages/ProfileInfo/ProfileInfo";
 import FinancialBarChart from "../pages/Report/FinancialBarChart";
 import UpdateTransaction from "../pages/UpdateTransaction/UpdateTransaction";
+import Error from "../pages/Error/Error";
 
 export const router = createBrowserRouter([
 	{
@@ -81,5 +82,9 @@ export const router = createBrowserRouter([
 				),
 			},
 		],
+	},
+	{
+		path: "*",
+		Component: Error,
 	},
 ]);

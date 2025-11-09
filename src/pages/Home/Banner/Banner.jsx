@@ -18,11 +18,11 @@ const Banner = () => {
 
 			{/* Buttons */}
 			<div className="flex flex-col sm:flex-row gap-4 justify-center">
-				<button className="flex items-center justify-center gap-2 bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-50 transition">
+				<button className="flex items-center justify-center gap-2 border hover:text-blue-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-50 transition">
 					Get Started Free
 					<ArrowRight className="w-5 h-5" />
 				</button>
-				<button className="px-6 py-3 rounded-lg bg-white/30 text-white font-semibold backdrop-blur-sm cursor-not-allowed">
+				<button className="px-6 py-3 h-full border rounded-lg btn btn-soft btn-primary font-semibold backdrop-blur-sm cursor-not-allowed">
 					View Reports
 				</button>
 			</div>

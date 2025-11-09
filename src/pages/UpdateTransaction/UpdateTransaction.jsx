@@ -56,26 +56,24 @@ const UpdateTransaction = () => {
 						showConfirmButton: false,
 						timer: 1500,
 					});
-					navigate("/myTransactions");
+					navigate(`/transactionDetails/${transaction._id}`);
 				}
 			});
 	};
 
 	return (
 		<div className="flex items-center justify-center py-10 md:py-14 lg:py-20 px-4">
-			<div className="bg-white border border-[#E0DAD1] shadow-lg rounded-2xl p-8 w-full max-w-2xl">
+			<div className="bg-white dark:bg-[#1D232A] border border-[#E0DAD1] shadow-lg rounded-2xl p-8 w-full max-w-2xl">
 				{/* Header */}
 				<div className="flex items-center gap-3 mb-6">
 					<div className="p-2 bg-blue-100 rounded-lg">
 						<FileEdit className="text-blue-600 w-5 h-5" />
 					</div>
 					<div>
-						<h2 className="text-xl font-semibold text-gray-800">
+						<h2 className="text-xl font-semibold">
 							Update Transaction
 						</h2>
-						<p className="text-sm text-gray-500">
-							Edit your transaction details
-						</p>
+						<p className="text-sm">Edit your transaction details</p>
 					</div>
 				</div>
 
@@ -83,7 +81,7 @@ const UpdateTransaction = () => {
 				<form onSubmit={handleUpdate} className="space-y-5">
 					{/* Transaction Type */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Transaction Type{" "}
 							<span className="text-red-500">*</span>
 						</label>
@@ -92,7 +90,7 @@ const UpdateTransaction = () => {
 							defaultValue={type}
 							onChange={(e) => setType(e.target.value)}
 							name="type"
-							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 focus:ring-2 focus:ring-blue-400"
+							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-[#1D232A] focus:ring-2 focus:ring-blue-400"
 						>
 							<option value="">Select type</option>
 							<option value="income">Income</option>
@@ -102,7 +100,7 @@ const UpdateTransaction = () => {
 
 					{/* Category */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Category <span className="text-red-500">*</span>
 						</label>
 
@@ -110,7 +108,7 @@ const UpdateTransaction = () => {
 							defaultValue={category}
 							onChange={(e) => setCategory(e.target.value)}
 							name="category"
-							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 focus:ring-2 focus:ring-blue-400"
+							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 dark:bg-[#1D232A] focus:ring-2 focus:ring-blue-400"
 						>
 							<option value="">
 								{type === ""
@@ -136,7 +134,7 @@ const UpdateTransaction = () => {
 
 					{/* Amount */}
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium mb-1">
 							Amount ($) <span className="text-red-500">*</span>
 						</label>
 						<input
@@ -150,7 +148,7 @@ const UpdateTransaction = () => {
 
 					{/* Description */}
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium mb-1">
 							Description
 						</label>
 						<textarea
@@ -163,7 +161,7 @@ const UpdateTransaction = () => {
 
 					{/* Date */}
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium mb-1">
 							Date <span className="text-red-500">*</span>
 						</label>
 						<div className="relative">
@@ -181,7 +179,7 @@ const UpdateTransaction = () => {
 					<div className="flex justify-between items-center pt-3">
 						<button
 							type="submit"
-							className="flex cursor-pointer items-center justify-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-all"
+							className="flex cursor-pointer items-center justify-center gap-2 common-btn text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-all"
 						>
 							<FileEdit className="w-4 h-4" />
 							Update Transaction
@@ -189,7 +187,7 @@ const UpdateTransaction = () => {
 						<button
 							onClick={() => navigate(-1)}
 							type="button"
-							className="border border-gray-300 text-gray-700 px-5 py-2 rounded-lg hover:bg-gray-50 transition-all"
+							className="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-50 transition-all"
 						>
 							Cancel
 						</button>

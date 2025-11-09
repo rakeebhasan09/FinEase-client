@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
 	return (
-		<footer className="bg-white border-t border-t-[#E0DAD1]">
+		<footer className="border-t border-t-[#E0DAD1] dark:border-t-[rgba(43,189,155,0.6)]">
 			<div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
 				{/* Logo + Description */}
 				<div className="space-y-3">
@@ -31,7 +31,7 @@ const Footer = () => {
 							</span>
 						</div>
 					</Link>
-					<p className="text-gray-500 text-sm leading-relaxed mt-3.5">
+					<p className="text-sm leading-relaxed mt-3.5">
 						Your trusted partner in personal finance management.
 						Take control of your financial future today.
 					</p>
@@ -39,10 +39,8 @@ const Footer = () => {
 
 				{/* Quick Links */}
 				<div>
-					<h3 className="font-semibold text-gray-800 mb-3">
-						Quick Links
-					</h3>
-					<ul className="space-y-2 text-gray-600 text-sm">
+					<h3 className="font-semibold mb-3">Quick Links</h3>
+					<ul className="space-y-2 text-sm">
 						<li>
 							<Link to="#" className="hover:text-blue-500">
 								Home
@@ -68,10 +66,8 @@ const Footer = () => {
 
 				{/* Contact */}
 				<div>
-					<h3 className="font-semibold text-gray-800 mb-3">
-						Contact Us
-					</h3>
-					<ul className="space-y-2 text-sm text-gray-600">
+					<h3 className="font-semibold mb-3">Contact Us</h3>
+					<ul className="space-y-2 text-sm">
 						<li className="flex items-center gap-2">
 							<span>📧</span> support@finease.com
 						</li>
@@ -83,8 +79,8 @@ const Footer = () => {
 
 				{/* Legal */}
 				<div>
-					<h3 className="font-semibold text-gray-800 mb-3">Legal</h3>
-					<ul className="space-y-2 text-sm text-gray-600">
+					<h3 className="font-semibold mb-3">Legal</h3>
+					<ul className="space-y-2 text-sm">
 						<li>
 							<Link to="#" className="hover:text-blue-500">
 								Terms & Conditions
@@ -98,7 +94,7 @@ const Footer = () => {
 					</ul>
 
 					{/* Social Icons */}
-					<div className="flex items-center gap-4 mt-4 text-gray-500 text-lg">
+					<div className="flex items-center gap-4 mt-4 text-lg">
 						<Link
 							to="https://www.facebook.com/"
 							className="hover:text-blue-500"
@@ -122,7 +118,7 @@ const Footer = () => {
 			</div>
 
 			{/* Bottom Text */}
-			<div className="py-4 text-center text-sm text-gray-500">
+			<div className="py-4 text-center text-sm text-gray-500 dark:text-white">
 				© 2025 FinEase. All rights reserved.
 			</div>
 		</footer>

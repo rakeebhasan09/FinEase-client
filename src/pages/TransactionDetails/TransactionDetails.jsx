@@ -1,18 +1,18 @@
 import { ArrowLeft, Calendar, Tag, FileText, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
-import useAxios from "../../hooks/useAxios";
+import useAuth from "../../hooks/useAuth";
 const TransactionDetails = () => {
 	const transaction = useLoaderData();
 	const [allTransactions, setAllTransactions] = useState([]);
 	const navigate = useNavigate();
-	const axiosInstance = useAxios();
+	const { user } = useAuth();
 
 	useEffect(() => {
-		axiosInstance.get("/transactions").then((data) => {
-			setAllTransactions(data.data);
-		});
-	}, [axiosInstance]);
+		fetch(`http://localhost:5170/transactions?email=${user.email}`)
+			.then((res) => res.json())
+			.then((data) => setAllTransactions(data));
+	}, [user]);
 
 	const dataByCategory = allTransactions.filter(
 		(item) => item.transaction_category === transaction.transaction_category
@@ -25,19 +25,19 @@ const TransactionDetails = () => {
 	}, 0);
 
 	return (
-		<section className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-10 px-6">
+		<section className="py-10 md:py-14 lg:py-20 px-6">
 			<div className="max-w-3xl mx-auto">
 				{/* Back link */}
 				<button
 					onClick={() => navigate(-1)}
-					className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 mb-6"
+					className="flex items-center gap-2 text-sm hover:text-blue-600 mb-6"
 				>
 					<ArrowLeft size={16} />
 					Back to Transactions
 				</button>
 
 				{/* Card */}
-				<div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+				<div className="bg-white dark:bg-[#1D232A] rounded-2xl shadow-sm border border-gray-100 p-8">
 					{/* Header */}
 					<div className="flex justify-between items-start mb-6">
 						<div className="flex items-center gap-2">
@@ -72,7 +72,7 @@ const TransactionDetails = () => {
 						</p>
 					</div>
 
-					<h2 className="text-2xl font-semibold text-gray-800 mb-6 capitalize">
+					<h2 className="text-2xl font-semibold mb-6 capitalize">
 						{transaction.transaction_category}
 					</h2>
 
@@ -86,8 +86,8 @@ const TransactionDetails = () => {
 								className="text-gray-400 mt-0.5"
 							/>
 							<div>
-								<p className="text-gray-500">Date</p>
-								<p className="font-medium text-gray-800">
+								<p>Date</p>
+								<p className="font-medium">
 									{transaction.transaction_date}
 								</p>
 							</div>
@@ -96,8 +96,8 @@ const TransactionDetails = () => {
 						<div className="flex items-start gap-2">
 							<Tag size={18} className="text-gray-400 mt-0.5" />
 							<div>
-								<p className="text-gray-500">Category</p>
-								<p className="font-medium text-gray-800 capitalize">
+								<p>Category</p>
+								<p className="font-medium capitalize">
 									{transaction.transaction_category}
 								</p>
 							</div>
@@ -109,12 +109,8 @@ const TransactionDetails = () => {
 								className="text-gray-400 mt-0.5"
 							/>
 							<div>
-								<p className="text-gray-500">
-									Total in Category
-								</p>
-								<p className="font-medium text-gray-800">
-									{totalInCategory}
-								</p>
+								<p>Total in Category</p>
+								<p className="font-medium">{totalInCategory}</p>
 							</div>
 						</div>
 
@@ -124,8 +120,8 @@ const TransactionDetails = () => {
 								className="text-gray-400 mt-0.5"
 							/>
 							<div>
-								<p className="text-gray-500">Transaction ID</p>
-								<p className="font-medium text-gray-800">
+								<p>Transaction ID</p>
+								<p className="font-medium">
 									#{transaction._id}
 								</p>
 							</div>
@@ -136,28 +132,24 @@ const TransactionDetails = () => {
 
 					{/* Description */}
 					<div className="mb-6">
-						<p className="text-gray-500 text-sm mb-1">
-							Description
-						</p>
-						<p className="text-gray-800">
-							{transaction.description}
-						</p>
+						<p className="text-sm mb-1">Description</p>
+						<p>{transaction.description}</p>
 					</div>
 
 					<hr className="border-gray-200 mb-6" />
 
 					{/* Created By */}
-					<div className="bg-gray-50 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
+					<div className="bg-gray-50 dark:bg-[#1D232A] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm">
 						<div>
-							<p className="text-gray-500">Created By</p>
-							<p className="font-medium text-gray-800">
+							<p>Created By</p>
+							<p className="font-medium">
 								{/* {transaction.createdBy} */}
 								{transaction.transaction_by}
 							</p>
 						</div>
 						<div>
-							<p className="text-gray-500">Email</p>
-							<p className="font-medium text-gray-800">
+							<p>Email</p>
+							<p className="font-medium">
 								{/* {transaction.email} */}
 								{transaction.email}
 							</p>
@@ -166,9 +158,6 @@ const TransactionDetails = () => {
 
 					{/* Buttons */}
 					<div className="flex flex-col sm:flex-row gap-3 mt-6">
-						{/* <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2.5 rounded-lg transition">
-							<Edit2 size={16} /> Edit Transaction
-						</button> */}
 						<button
 							onClick={() => navigate(-1)}
 							className="border common-btn cursor-pointer text-white border-gray-200 hover:bg-gray-100 font-medium px-4 py-2.5 rounded-lg transition"

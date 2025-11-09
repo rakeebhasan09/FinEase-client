@@ -52,18 +52,14 @@ const MyTransactions = () => {
 	return (
 		<section className="py-10 md:py-14 lg:py-20 px-6">
 			<div className="max-w-6xl mx-auto">
-				<h2 className="text-3xl font-bold text-gray-900">
-					My Transactions
-				</h2>
-				<p className="text-gray-500 mb-8">
-					View and manage all your transactions
-				</p>
+				<h2 className="text-3xl font-bold">My Transactions</h2>
+				<p className="mb-8">View and manage all your transactions</p>
 
 				<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{transactions.map((t) => (
 						<div
 							key={t._id}
-							className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition"
+							className="rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition"
 						>
 							<div className="flex items-center gap-2 mb-2">
 								<div
@@ -90,12 +86,9 @@ const MyTransactions = () => {
 								</span>
 							</div>
 
-							<h3 className="text-lg font-semibold text-gray-800 capitalize">
+							<h3 className="text-lg font-semibold capitalize">
 								{t.transaction_category}
 							</h3>
-							<p className="text-gray-500 text-sm capitalize">
-								{t.description}
-							</p>
 							<p
 								className={`text-xl font-bold mt-2 ${
 									t.transaction_type === "income"
@@ -105,26 +98,24 @@ const MyTransactions = () => {
 							>
 								${t.transaction_amount}
 							</p>
-							<p className="text-sm text-gray-400 mt-1">
-								{t.transaction_date}
-							</p>
+							<p className="text-sm mt-1">{t.transaction_date}</p>
 
 							<div className="flex items-center gap-2 mt-4">
 								{/* Transaction Details */}
 								<Link
 									to={`/transactionDetails/${t._id}`}
-									className="flex items-center gap-1 text-gray-600 text-sm font-medium bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-100 transition"
+									className="flex items-center gap-1 text-sm font-medium border border-gray-200 rounded-lg px-3 py-1.5 transition"
 								>
 									<Eye size={14} /> Details
 								</Link>
 								{/* Edit Transaction */}
 								<Link
 									to={`/updateTransaction/${t._id}`}
-									className="p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition"
+									className="p-2 rounded-lg border border-gray-200 transition"
 								>
 									<Edit2
 										size={14}
-										className="text-gray-600"
+										className="text-gray-600 dark:text-white"
 									/>
 								</Link>
 								{/* Delete Transaction */}
@@ -132,7 +123,7 @@ const MyTransactions = () => {
 									onClick={() =>
 										handleDeleteTransaction(t._id)
 									}
-									className="p-2 rounded-lg border border-gray-200 hover:bg-red-50 transition"
+									className="p-2 rounded-lg cursor-pointer border border-gray-200 transition"
 								>
 									<Trash2
 										size={14}

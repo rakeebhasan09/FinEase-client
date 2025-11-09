@@ -39,6 +39,7 @@ const AddTransaction = () => {
 		const transaction_date = e.target.date.value;
 		const transaction_by = user.displayName;
 		const email = user.email;
+		const created_at = new Date();
 
 		const newTransactionData = {
 			transaction_type,
@@ -48,6 +49,7 @@ const AddTransaction = () => {
 			transaction_date,
 			transaction_by,
 			email,
+			created_at,
 		};
 
 		axiosInstance.post("/transactions", newTransactionData).then((data) => {
@@ -66,19 +68,17 @@ const AddTransaction = () => {
 	};
 	return (
 		<div className="min-h-screen  flex justify-center items-start py-10 px-4">
-			<div className="bg-white w-full max-w-2xl border border-[#E0DAD1] shadow-xl rounded-2xl p-8">
+			<div className="w-full max-w-2xl border border-[#E0DAD1] shadow-xl rounded-2xl p-8">
 				{/* Header */}
 				<div className="flex items-center gap-3 mb-6">
 					<div className="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
 						<Plus size={20} />
 					</div>
 					<div>
-						<h2 className="text-2xl font-semibold text-gray-800">
+						<h2 className="text-2xl font-semibold">
 							Add Transaction
 						</h2>
-						<p className="text-gray-500 text-sm">
-							Record your income or expense
-						</p>
+						<p className="text-sm">Record your income or expense</p>
 					</div>
 				</div>
 
@@ -86,7 +86,7 @@ const AddTransaction = () => {
 				<form onSubmit={handleAddTransaction} className="space-y-5">
 					{/* Transaction Type */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Transaction Type{" "}
 							<span className="text-red-500">*</span>
 						</label>
@@ -95,17 +95,23 @@ const AddTransaction = () => {
 							value={type}
 							onChange={(e) => setType(e.target.value)}
 							name="type"
-							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 focus:ring-2 focus:ring-blue-400"
+							className="mt-1 w-full border dark:bg-[#1D232A] dark:text-white border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-400"
 						>
-							<option value="">Select type</option>
-							<option value="income">Income</option>
-							<option value="expense">Expense</option>
+							<option className="bg-transparent" value="">
+								Select type
+							</option>
+							<option className="bg-transparent" value="income">
+								Income
+							</option>
+							<option className="bg-transparent" value="expense">
+								Expense
+							</option>
 						</select>
 					</div>
 
 					{/* Category */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Category <span className="text-red-500">*</span>
 						</label>
 
@@ -113,7 +119,7 @@ const AddTransaction = () => {
 							value={category}
 							onChange={(e) => setCategory(e.target.value)}
 							name="category"
-							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 bg-gray-50 focus:ring-2 focus:ring-blue-400"
+							className="mt-1 w-full border dark:bg-[#1D232A] dark:text-white border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-400"
 						>
 							<option value="">
 								{type === ""
@@ -139,20 +145,20 @@ const AddTransaction = () => {
 
 					{/* Amount */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Amount ($) <span className="text-red-500">*</span>
 						</label>
 						<input
 							type="number"
 							placeholder="0.00"
 							name="amount"
-							className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-400"
+							className="mt-1 w-full border dark:bg-transparent border-gray-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-400"
 						/>
 					</div>
 
 					{/* Description */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Description
 						</label>
 						<textarea
@@ -165,15 +171,12 @@ const AddTransaction = () => {
 
 					{/* Date */}
 					<div>
-						<label className="text-sm font-medium text-gray-700">
+						<label className="text-sm font-medium">
 							Date <span className="text-red-500">*</span>
 						</label>
 
-						<div className="flex items-center border border-gray-300 rounded-lg px-4 py-2.5 mt-1 bg-gray-50 focus-within:ring-2 focus-within:ring-blue-400">
-							<Calendar
-								className="text-gray-500 mr-2"
-								size={18}
-							/>
+						<div className="flex items-center border border-gray-300 rounded-lg px-4 py-2.5 mt-1 focus-within:ring-2 focus-within:ring-blue-400">
+							<Calendar className="mr-2" size={18} />
 							<input
 								type="date"
 								name="date"
@@ -183,29 +186,21 @@ const AddTransaction = () => {
 					</div>
 
 					{/* User Info Box */}
-					<div className="grid grid-cols-2 gap-6 bg-gray-50 p-4 rounded-lg mt-4">
+					<div className="grid grid-cols-2 gap-6 p-4 rounded-lg mt-4">
 						<div>
-							<p className="text-xs text-gray-500 font-medium">
-								User Email
-							</p>
-							<p className="font-semibold text-gray-700">
-								{user.email}
-							</p>
+							<p className="text-xs font-medium">User Email</p>
+							<p className="font-semibold">{user.email}</p>
 						</div>
 						<div>
-							<p className="text-xs text-gray-500 font-medium">
-								User Name
-							</p>
-							<p className="font-semibold text-gray-700">
-								{user.displayName}
-							</p>
+							<p className="text-xs font-medium">User Name</p>
+							<p className="font-semibold">{user.displayName}</p>
 						</div>
 					</div>
 
 					{/* Submit Button */}
 					<button
 						type="submit"
-						className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-medium mt-4"
+						className="w-full cursor-pointer common-btn hover:bg-blue-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 text-sm font-medium mt-4"
 					>
 						<Plus size={18} />
 						Add Transaction
