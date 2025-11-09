@@ -1,17 +1,29 @@
-import {
-	ArrowLeft,
-	Calendar,
-	Tag,
-	FileText,
-	DollarSign,
-	Edit2,
-} from "lucide-react";
+import { ArrowLeft, Calendar, Tag, FileText, DollarSign } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router";
+import useAxios from "../../hooks/useAxios";
 const TransactionDetails = () => {
 	const transaction = useLoaderData();
+	const [allTransactions, setAllTransactions] = useState([]);
 	const navigate = useNavigate();
+	const axiosInstance = useAxios();
 
-	console.log(transaction);
+	useEffect(() => {
+		axiosInstance.get("/transactions").then((data) => {
+			setAllTransactions(data.data);
+		});
+	}, [axiosInstance]);
+
+	const dataByCategory = allTransactions.filter(
+		(item) => item.transaction_category === transaction.transaction_category
+	);
+
+	const totalInCategory = dataByCategory.reduce((sum, item) => {
+		const raw = item.transaction_amount;
+		const num = Number(String(raw).replace(/,/g, ""));
+		return sum + (Number.isFinite(num) ? num : 0);
+	}, 0);
+
 	return (
 		<section className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-10 px-6">
 			<div className="max-w-3xl mx-auto">
@@ -101,7 +113,7 @@ const TransactionDetails = () => {
 									Total in Category
 								</p>
 								<p className="font-medium text-gray-800">
-									{transaction.totalInCategory}
+									{totalInCategory}
 								</p>
 							</div>
 						</div>

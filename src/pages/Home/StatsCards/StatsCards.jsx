@@ -1,6 +1,40 @@
 import { ArrowUpRight, TrendingUp, TrendingDown } from "lucide-react";
+import useAuth from "../../../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const StatsCards = () => {
+	const { user } = useAuth();
+	const [transactions, setTransactions] = useState([]);
+
+	useEffect(() => {
+		fetch(`http://localhost:5170/transactions?email=${user?.email}`)
+			.then((res) => res.json())
+			.then((data) => setTransactions(data));
+	}, [user]);
+
+	// Total Income
+	const incomeData = transactions.filter(
+		(item) => item.transaction_type === "income"
+	);
+	const totalIncome = incomeData.reduce((sum, item) => {
+		const raw = item.transaction_amount;
+		const num = Number(String(raw).replace(/,/g, ""));
+		return sum + (Number.isFinite(num) ? num : 0);
+	}, 0);
+
+	// Total Expense
+	const expenseData = transactions.filter(
+		(item) => item.transaction_type === "expense"
+	);
+	const totalExpense = expenseData.reduce((sum, item) => {
+		const raw = item.transaction_amount;
+		const num = Number(String(raw).replace(/,/g, ""));
+		return sum + (Number.isFinite(num) ? num : 0);
+	}, 0);
+
+	// Overall Total
+	let myTotal = totalIncome - totalExpense;
+
 	return (
 		<div className="py-10 md:py-14 lg:py-20">
 			<div className="text-center">
@@ -22,7 +56,7 @@ const StatsCards = () => {
 					</div>
 
 					<p className="text-3xl font-bold text-blue-600 mt-3">
-						$15,420.50
+						${myTotal ? myTotal : "0"}
 					</p>
 				</div>
 
@@ -38,7 +72,7 @@ const StatsCards = () => {
 					</div>
 
 					<p className="text-3xl font-bold text-green-600 mt-3">
-						$25,000.00
+						${totalIncome}
 					</p>
 				</div>
 
@@ -54,7 +88,7 @@ const StatsCards = () => {
 					</div>
 
 					<p className="text-3xl font-bold text-red-600 mt-3">
-						$9,579.50
+						${totalExpense}
 					</p>
 				</div>
 			</div>
