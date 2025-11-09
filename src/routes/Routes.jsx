@@ -3,11 +3,11 @@ import Root from "../layOuts/RootLayout/Root";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
-import Profile from "../pages/Profile/Profile/Profile";
 import PrivateRoutes from "./PrivateRoutes";
 import AddTransaction from "../pages/AddTransaction/AddTransaction";
 import MyTransactions from "../pages/MyTransactions/MyTransactions";
 import TransactionDetails from "../pages/TransactionDetails/TransactionDetails";
+import ProfileInfo from "../pages/ProfileInfo/ProfileInfo";
 
 export const router = createBrowserRouter([
 	{
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
 				path: "profile",
 				element: (
 					<PrivateRoutes>
-						<Profile />
+						<ProfileInfo />
 					</PrivateRoutes>
 				),
 			},
