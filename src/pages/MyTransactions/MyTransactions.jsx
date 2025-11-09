@@ -50,7 +50,7 @@ const MyTransactions = () => {
 	};
 
 	return (
-		<section className="bg-linear-to-br from-gray-50 to-gray-100 py-10 md:py-14 lg:py-20 px-6">
+		<section className="py-10 md:py-14 lg:py-20 px-6">
 			<div className="max-w-6xl mx-auto">
 				<h2 className="text-3xl font-bold text-gray-900">
 					My Transactions
@@ -110,18 +110,24 @@ const MyTransactions = () => {
 							</p>
 
 							<div className="flex items-center gap-2 mt-4">
+								{/* Transaction Details */}
 								<Link
 									to={`/transactionDetails/${t._id}`}
 									className="flex items-center gap-1 text-gray-600 text-sm font-medium bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-100 transition"
 								>
 									<Eye size={14} /> Details
 								</Link>
-								<button className="p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
+								{/* Edit Transaction */}
+								<Link
+									to={`/updateTransaction/${t._id}`}
+									className="p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition"
+								>
 									<Edit2
 										size={14}
 										className="text-gray-600"
 									/>
-								</button>
+								</Link>
+								{/* Delete Transaction */}
 								<button
 									onClick={() =>
 										handleDeleteTransaction(t._id)

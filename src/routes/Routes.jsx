@@ -8,6 +8,8 @@ import AddTransaction from "../pages/AddTransaction/AddTransaction";
 import MyTransactions from "../pages/MyTransactions/MyTransactions";
 import TransactionDetails from "../pages/TransactionDetails/TransactionDetails";
 import ProfileInfo from "../pages/ProfileInfo/ProfileInfo";
+import FinancialBarChart from "../pages/Report/FinancialBarChart";
+import UpdateTransaction from "../pages/UpdateTransaction/UpdateTransaction";
 
 export const router = createBrowserRouter([
 	{
@@ -49,6 +51,24 @@ export const router = createBrowserRouter([
 				element: (
 					<PrivateRoutes>
 						<TransactionDetails />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "updateTransaction/:id",
+				loader: ({ params }) =>
+					fetch(`http://localhost:5170/transactions/${params.id}`),
+				element: (
+					<PrivateRoutes>
+						<UpdateTransaction />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "reports",
+				element: (
+					<PrivateRoutes>
+						<FinancialBarChart />
 					</PrivateRoutes>
 				),
 			},

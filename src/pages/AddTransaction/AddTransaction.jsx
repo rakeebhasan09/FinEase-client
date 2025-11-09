@@ -65,8 +65,8 @@ const AddTransaction = () => {
 		});
 	};
 	return (
-		<div className="min-h-screen flex justify-center items-start py-10 px-4 bg-linear-to-br from-blue-50 to-green-50">
-			<div className="bg-white w-full max-w-2xl shadow-xl rounded-2xl p-8">
+		<div className="min-h-screen  flex justify-center items-start py-10 px-4">
+			<div className="bg-white w-full max-w-2xl border border-[#E0DAD1] shadow-xl rounded-2xl p-8">
 				{/* Header */}
 				<div className="flex items-center gap-3 mb-6">
 					<div className="w-9 h-9 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">

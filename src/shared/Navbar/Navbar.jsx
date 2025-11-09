@@ -49,7 +49,7 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/contact"
+					to="/reports"
 					className="hover:bg-transparent p-0 text-[16px]"
 				>
 					Reports
@@ -66,7 +66,7 @@ const Navbar = () => {
 		</>
 	);
 	return (
-		<header className="bg-[#FEFEFE] backdrop-blur supports-backdrop-filter:bg-[rgba(254,254,254,0.8)] py-5">
+		<header className="bg-[#FEFEFE] backdrop-blur shadow supports-backdrop-filter:bg-[rgba(254,254,254,0.8)] py-5">
 			<div className="container">
 				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}
