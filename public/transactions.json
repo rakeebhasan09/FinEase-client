@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"type": "income",
+		"title": "Salary",
+		"description": "Monthly salary",
+		"amount": "+$5000.00",
+		"date": "January 15, 2024"
+	},
+	{
+		"id": 2,
+		"type": "expense",
+		"title": "Food",
+		"description": "Grocery shopping",
+		"amount": "-$150.50",
+		"date": "January 14, 2024"
+	},
+	{
+		"id": 3,
+		"type": "expense",
+		"title": "Transport",
+		"description": "Gas and car maintenance",
+		"amount": "-$60.00",
+		"date": "January 13, 2024"
+	},
+	{
+		"id": 4,
+		"type": "income",
+		"title": "Freelance",
+		"description": "Web design project",
+		"amount": "+$800.00",
+		"date": "January 12, 2024"
+	},
+	{
+		"id": 5,
+		"type": "expense",
+		"title": "Entertainment",
+		"description": "Movie tickets",
+		"amount": "-$45.00",
+		"date": "January 11, 2024"
+	},
+	{
+		"id": 6,
+		"type": "expense",
+		"title": "Bills",
+		"description": "Internet and electricity",
+		"amount": "-$120.00",
+		"date": "January 10, 2024"
+	}
+]

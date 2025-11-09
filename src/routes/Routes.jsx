@@ -36,6 +36,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "myTransactions",
+				loader: () => fetch("/transactions.json"),
 				element: (
 					<PrivateRoutes>
 						<MyTransactions />
