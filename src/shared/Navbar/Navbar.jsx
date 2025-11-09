@@ -71,7 +71,7 @@ const Navbar = () => {
 				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}
 					<div className="navbar-start">
-						<div className="dropdown">
+						<div className="dropdown z-50">
 							<div
 								tabIndex={0}
 								role="button"
@@ -94,7 +94,7 @@ const Navbar = () => {
 							</div>
 							<ul
 								tabIndex="-1"
-								className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-5 gap-4 shadow"
+								className="menu menu-sm dropdown-content bg-white rounded-box z-50 mt-3 w-52 p-5 gap-4 shadow"
 							>
 								{links}
 							</ul>
@@ -121,7 +121,7 @@ const Navbar = () => {
 										<path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
 									</svg>
 								</div>
-								<span className="text-2xl font-bold bg-linear-to-r from-[#308CDF] to-[#2CBF97] bg-clip-text text-transparent">
+								<span className="text-2xl font-bold text-primary">
 									FinEase
 								</span>
 							</div>
@@ -135,7 +135,12 @@ const Navbar = () => {
 					</div>
 					{/* Menu End */}
 					<div className="navbar-end">
-						<div className="flex items-center gap-3">
+						<input
+							type="checkbox"
+							value="synthwave"
+							className="toggle theme-controller"
+						/>
+						<div className="flex items-center gap-3 ml-3">
 							{user ? (
 								<div className="dropdown dropdown-end w-[45px] h-[45px]">
 									<div
@@ -153,7 +158,7 @@ const Navbar = () => {
 									</div>
 									<ul
 										tabIndex="-1"
-										className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 shadow"
+										className="menu  z-50 menu-sm dropdown-content bg-white rounded-box mt-3 p-2 shadow"
 									>
 										<li>
 											<a className="text-[16px]">

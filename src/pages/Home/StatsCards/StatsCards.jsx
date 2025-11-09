@@ -5,7 +5,7 @@ const StatsCards = () => {
 		<div className="py-10 md:py-14 lg:py-20">
 			<div className="text-center">
 				{/* Heading */}
-				<span className="text-3xl md:text-4xl font-bold bg-linear-to-r from-[#308CDF] to-[#2CBF97] bg-clip-text text-transparent">
+				<span className="text-3xl md:text-4xl font-bold text-primary">
 					FinEase Status
 				</span>
 			</div>

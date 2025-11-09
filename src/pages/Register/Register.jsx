@@ -90,7 +90,7 @@ const Register = () => {
 					</h1>
 					<p className="text-center ">
 						Already have an account?{" "}
-						<Link to="/login" className="gradient-text">
+						<Link to="/login" className="text-primary">
 							Login Now
 						</Link>
 					</p>
@@ -148,7 +148,7 @@ const Register = () => {
 										)}
 									</div>
 								</div>
-								<button className="btn h-12 bg-linear-to-br from-[#308CDF] to-[#2CBF97] py-3 text-white text-[16px] font-semibold mt-4">
+								<button className="btn h-12 common-btn py-3 text-white text-[16px] font-semibold mt-4">
 									Register
 								</button>
 							</fieldset>

@@ -53,7 +53,9 @@ const Login = () => {
 					</h1>
 					<p className="text-center ">
 						Don't have an account?{" "}
-						<Link to="/register">Register Now</Link>
+						<Link to="/register" className="text-primary">
+							Register Now
+						</Link>
 					</p>
 					<div className="card-body p-0">
 						<form onSubmit={handleUserLogin}>
@@ -96,7 +98,7 @@ const Login = () => {
 										Forgot password?
 									</a>
 								</div>
-								<button className="btn h-12 bg-linear-to-br from-[#308CDF] to-[#2CBF97] py-3 text-white text-[16px] font-semibold mt-4">
+								<button className="btn h-12 common-btn py-3 text-white text-[16px] font-semibold mt-4">
 									Login
 								</button>
 							</fieldset>

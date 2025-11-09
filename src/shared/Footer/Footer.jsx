@@ -1,3 +1,4 @@
+import { FaBehanceSquare, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Footer = () => {
@@ -25,7 +26,7 @@ const Footer = () => {
 									<path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
 								</svg>
 							</div>
-							<span className="text-2xl font-bold bg-linear-to-r from-[#308CDF] to-[#2CBF97] bg-clip-text text-transparent">
+							<span className="text-2xl font-bold text-primary">
 								FinEase
 							</span>
 						</div>
@@ -43,24 +44,24 @@ const Footer = () => {
 					</h3>
 					<ul className="space-y-2 text-gray-600 text-sm">
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								Home
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								Add Transaction
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								My Transactions
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								Reports
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -85,31 +86,37 @@ const Footer = () => {
 					<h3 className="font-semibold text-gray-800 mb-3">Legal</h3>
 					<ul className="space-y-2 text-sm text-gray-600">
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								Terms & Conditions
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#" className="hover:text-blue-500">
+							<Link to="#" className="hover:text-blue-500">
 								Privacy Policy
-							</a>
+							</Link>
 						</li>
 					</ul>
 
 					{/* Social Icons */}
 					<div className="flex items-center gap-4 mt-4 text-gray-500 text-lg">
-						<a href="#" className="hover:text-blue-500">
-							🌐
-						</a>
-						<a href="#" className="hover:text-blue-500">
-							🐦
-						</a>
-						<a href="#" className="hover:text-blue-500">
-							🔗
-						</a>
-						<a href="#" className="hover:text-blue-500">
-							📸
-						</a>
+						<Link
+							to="https://www.facebook.com/"
+							className="hover:text-blue-500"
+						>
+							<FaFacebook className="text-[24px]" />
+						</Link>
+						<Link
+							to="https://www.linkedin.com/login"
+							className="hover:text-blue-500"
+						>
+							<FaLinkedin className="text-[24px]" />
+						</Link>
+						<Link
+							to="https://www.behance.net/"
+							className="hover:text-blue-500"
+						>
+							<FaBehanceSquare className="text-[24px]" />
+						</Link>
 					</div>
 				</div>
 			</div>

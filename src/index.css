@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 @import "tailwindcss";
-@plugin "daisyui" {
-	themes: light --default;
-}
+@plugin "daisyui"
 
 body {
 	font-size: 16px;
@@ -18,6 +16,14 @@ body {
 @layer base {
 	:root {
 	}
+}
+
+.text-primary {
+	@apply bg-linear-to-r from-[#308CDF] to-[#2CBF97] bg-clip-text text-transparent;
+}
+
+.common-btn {
+	@apply bg-linear-to-br from-[#308CDF] to-[#2CBF97];
 }
 
 .navbar-start .menu-sm.dropdown-content li a {
