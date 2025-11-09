@@ -1,5 +1,5 @@
 import { Edit2, Eye, Trash2, TrendingDown, TrendingUp } from "lucide-react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const MyTransactions = () => {
 	const transactions = useLoaderData();
@@ -65,9 +65,12 @@ const MyTransactions = () => {
 							</p>
 
 							<div className="flex items-center gap-2 mt-4">
-								<button className="flex items-center gap-1 text-gray-600 text-sm font-medium bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-100 transition">
+								<Link
+									to={`/transactionDetails/${t.id}`}
+									className="flex items-center gap-1 text-gray-600 text-sm font-medium bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-100 transition"
+								>
 									<Eye size={14} /> Details
-								</button>
+								</Link>
 								<button className="p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition">
 									<Edit2
 										size={14}

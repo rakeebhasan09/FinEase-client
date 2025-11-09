@@ -13,9 +13,8 @@ body {
 	padding: 0 15px;
 }
 
-@layer base {
-	:root {
-	}
+button {
+	cursor: pointer !important;
 }
 
 .text-primary {

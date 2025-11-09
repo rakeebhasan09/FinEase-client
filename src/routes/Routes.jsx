@@ -4,10 +4,10 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
 import Profile from "../pages/Profile/Profile/Profile";
-import Contact from "../pages/Contact/Contact/Contact";
 import PrivateRoutes from "./PrivateRoutes";
 import AddTransaction from "../pages/AddTransaction/AddTransaction";
 import MyTransactions from "../pages/MyTransactions/MyTransactions";
+import TransactionDetails from "../pages/TransactionDetails/TransactionDetails";
 
 export const router = createBrowserRouter([
 	{
@@ -44,16 +44,21 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
+				path: "transactionDetails/:id",
+				loader: () => fetch("/transactions.json"),
+				element: (
+					<PrivateRoutes>
+						<TransactionDetails />
+					</PrivateRoutes>
+				),
+			},
+			{
 				path: "profile",
 				element: (
 					<PrivateRoutes>
 						<Profile />
 					</PrivateRoutes>
 				),
-			},
-			{
-				path: "contact",
-				Component: Contact,
 			},
 		],
 	},
