@@ -1,42 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @import "tailwindcss";
 @plugin "daisyui" {
 	themes: light --default;
 }
 
+body {
+	font-size: 16px;
+	font-family: "Inter", sans-serif;
+}
+
+.container {
+	margin: auto;
+	padding: 0 15px;
+}
+
 @layer base {
 	:root {
-		--color-primary: #001931;
-		--color-secondary: rgb(0, 25, 49, 0.5);
-	}
-	.container {
-		max-width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
-		margin: 0 auto;
-	}
-
-	@media (min-width: 768px) {
-		.container {
-			max-width: 720px !important;
-		}
-	}
-
-	@media (min-width: 992px) {
-		.container {
-			max-width: 960px !important;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.container {
-			max-width: 1140px !important;
-		}
-	}
-
-	@media (min-width: 1400px) {
-		.container {
-			max-width: 1320px !important;
-		}
 	}
 }
 

@@ -97,40 +97,40 @@ const Register = () => {
 					<div className="card-body p-0">
 						<form onSubmit={handleRegistration}>
 							<fieldset className="fieldset mt-6">
-								<label className="label text-primary font-medium text-[14px]">
+								<label className="label text-black font-medium text-[14px]">
 									Name
 								</label>
 								<input
 									type="text"
-									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-primary opacity-[0.5]"
+									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-black"
 									placeholder="Mariam Swarna"
 									name="name"
 								/>
-								<label className="label text-primary font-medium text-[14px]">
+								<label className="label text-black font-medium text-[14px]">
 									Email
 								</label>
 								<input
 									type="email"
-									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-primary opacity-[0.5]"
+									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-black"
 									placeholder="smsowkothasan@gmail.com"
 									name="email"
 								/>
-								<label className="label text-primary font-medium text-[14px]">
+								<label className="label text-black font-medium text-[14px]">
 									Image-URL
 								</label>
 								<input
 									type="text"
-									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-primary opacity-[0.5]"
+									className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-black"
 									placeholder="Photo URL here"
 									name="photo"
 								/>
-								<label className="label text-primary font-medium text-[14px]">
+								<label className="label text-black font-medium text-[14px]">
 									Password
 								</label>
 								<div className="relative">
 									<input
 										type={show ? "text" : "password"}
-										className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-primary opacity-[0.5]"
+										className="input outline-none border border-[#E9E9E9] rounded w-full py-2 pl-3 shadow-0 text-black"
 										placeholder="*************"
 										name="password"
 									/>
@@ -148,7 +148,7 @@ const Register = () => {
 										)}
 									</div>
 								</div>
-								<button className="btn h-12 bg-[linear-gradient(80deg,#632EE3_5.68%,#9F62F2_88.38%)] py-3 text-white text-[16px] font-semibold mt-4">
+								<button className="btn h-12 bg-linear-to-br from-[#308CDF] to-[#2CBF97] py-3 text-white text-[16px] font-semibold mt-4">
 									Register
 								</button>
 							</fieldset>

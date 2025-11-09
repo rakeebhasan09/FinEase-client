@@ -36,7 +36,23 @@ const Navbar = () => {
 					to="/about"
 					className="hover:bg-transparent p-0 text-[16px]"
 				>
-					About
+					Add Transaction
+				</NavLink>
+			</li>
+			<li>
+				<NavLink
+					to="/myTransactions"
+					className="hover:bg-transparent p-0 text-[16px]"
+				>
+					My Transactions
+				</NavLink>
+			</li>
+			<li>
+				<NavLink
+					to="/contact"
+					className="hover:bg-transparent p-0 text-[16px]"
+				>
+					Reports
 				</NavLink>
 			</li>
 			<li>
@@ -47,18 +63,10 @@ const Navbar = () => {
 					Profile
 				</NavLink>
 			</li>
-			<li>
-				<NavLink
-					to="/contact"
-					className="hover:bg-transparent p-0 text-[16px]"
-				>
-					Contact
-				</NavLink>
-			</li>
 		</>
 	);
 	return (
-		<header className="bg-base-100 shadow-sm py-5">
+		<header className="bg-[#FEFEFE] backdrop-blur supports-backdrop-filter:bg-[rgba(254,254,254,0.8)] py-5">
 			<div className="container">
 				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}
@@ -92,7 +100,31 @@ const Navbar = () => {
 							</ul>
 						</div>
 						<Link to="/" className="text-xl font-semibold">
-							daisyUI
+							<div
+								className="flex items-center space-x-2"
+								href="/"
+							>
+								<div className="rounded-lg bg-linear-to-br from-[#308CDF] to-[#2CBF97] p-2">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="#fff"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="lucide lucide-wallet h-6 w-6 text-primary-foreground"
+									>
+										<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path>
+										<path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+									</svg>
+								</div>
+								<span className="text-2xl font-bold bg-linear-to-r from-[#308CDF] to-[#2CBF97] bg-clip-text text-transparent">
+									FinEase
+								</span>
+							</div>
 						</Link>
 					</div>
 					{/* Menu Center */}
@@ -153,7 +185,7 @@ const Navbar = () => {
 									</Link>
 									<Link
 										to="/register"
-										className="btn btn-primary"
+										className="btn btn-primary hidden sm:flex items-center justify-center"
 									>
 										Register
 									</Link>
