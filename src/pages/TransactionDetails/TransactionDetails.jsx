@@ -161,7 +161,7 @@ const TransactionDetails = () => {
 					{/* Buttons */}
 					<div className="flex flex-col sm:flex-row gap-3 mt-6">
 						<button
-							onClick={() => navigate(-1)}
+							onClick={() => navigate("/my-transactions")}
 							className="border common-btn cursor-pointer text-white border-gray-200 hover:bg-gray-100 font-medium px-4 py-2.5 rounded-lg transition"
 						>
 							View All
