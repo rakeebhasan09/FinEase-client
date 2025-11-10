@@ -8,9 +8,10 @@ import AddTransaction from "../pages/AddTransaction/AddTransaction";
 import MyTransactions from "../pages/MyTransactions/MyTransactions";
 import TransactionDetails from "../pages/TransactionDetails/TransactionDetails";
 import ProfileInfo from "../pages/ProfileInfo/ProfileInfo";
-import FinancialBarChart from "../pages/Report/FinancialBarChart";
+// import FinancialBarChart from "../pages/Report/FinancialBarChart";
 import UpdateTransaction from "../pages/UpdateTransaction/UpdateTransaction";
 import Error from "../pages/Error/Error";
+import ReportChart from "../pages/Report/ReportChart";
 
 export const router = createBrowserRouter([
 	{
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
 				Component: Register,
 			},
 			{
-				path: "addTransaction",
+				path: "add-transaction",
 				element: (
 					<PrivateRoutes>
 						<AddTransaction />
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "myTransactions",
+				path: "my-transactions",
 				element: (
 					<PrivateRoutes>
 						<MyTransactions />
@@ -46,7 +47,7 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "transactionDetails/:id",
+				path: "transaction/:id",
 				loader: ({ params }) =>
 					fetch(`http://localhost:5170/transactions/${params.id}`),
 				element: (
@@ -56,7 +57,7 @@ export const router = createBrowserRouter([
 				),
 			},
 			{
-				path: "updateTransaction/:id",
+				path: "transaction/update/:id",
 				loader: ({ params }) =>
 					fetch(`http://localhost:5170/transactions/${params.id}`),
 				element: (
@@ -67,9 +68,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "reports",
+				// loader: () => fetch("http://localhost:5170/transactions"),
 				element: (
 					<PrivateRoutes>
-						<FinancialBarChart />
+						{/* <FinancialBarChart /> */}
+						<ReportChart />
 					</PrivateRoutes>
 				),
 			},

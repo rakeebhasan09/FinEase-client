@@ -47,7 +47,7 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/addTransaction"
+					to="/add-transaction"
 					className="hover:bg-transparent p-0 text-[16px]"
 				>
 					Add Transaction
@@ -55,7 +55,7 @@ const Navbar = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/myTransactions"
+					to="/my-transactions"
 					className="hover:bg-transparent p-0 text-[16px]"
 				>
 					My Transactions
@@ -80,7 +80,7 @@ const Navbar = () => {
 		</>
 	);
 	return (
-		<header className="shadow py-5">
+		<header className="shadow py-5 bg-white backdrop-blur supports-backdrop-filter:bg-white/70 dark:bg-[#1D232A] dark:supports-backdrop-filter:bg-[#1D232A]/70">
 			<div className="container">
 				<div className="navbar p-0 min-h-0">
 					{/* Navbar Start */}

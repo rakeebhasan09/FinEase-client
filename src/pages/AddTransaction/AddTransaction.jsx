@@ -36,7 +36,7 @@ const AddTransaction = () => {
 		const transaction_category = category;
 		const transaction_amount = e.target.amount.value;
 		const description = e.target.description.value;
-		const transaction_date = e.target.date.value;
+		const transaction_date = new Date(e.target.date.value);
 		const transaction_by = user.displayName;
 		const email = user.email;
 		const created_at = new Date();
@@ -55,7 +55,7 @@ const AddTransaction = () => {
 		axiosInstance.post("/transactions", newTransactionData).then((data) => {
 			if (data.data.insertedId) {
 				e.target.reset();
-				navigate("/myTransactions");
+				navigate("/my-transactions");
 				Swal.fire({
 					position: "center",
 					icon: "success",

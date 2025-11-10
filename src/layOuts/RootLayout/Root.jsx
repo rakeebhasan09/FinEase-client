@@ -8,7 +8,7 @@ const Root = () => {
 		<>
 			<div className="flex flex-col min-h-screen">
 				<ScrollTop />
-				<section>
+				<section className="sticky top-0 z-50">
 					<Navbar />
 				</section>
 				<main className="grow">

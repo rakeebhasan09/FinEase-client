@@ -88,7 +88,13 @@ const TransactionDetails = () => {
 							<div>
 								<p>Date</p>
 								<p className="font-medium">
-									{transaction.transaction_date}
+									{new Date(
+										transaction.transaction_date
+									).toLocaleDateString("en-GB", {
+										day: "2-digit",
+										month: "short",
+										year: "2-digit",
+									})}
 								</p>
 							</div>
 						</div>

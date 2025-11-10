@@ -98,19 +98,27 @@ const MyTransactions = () => {
 							>
 								${t.transaction_amount}
 							</p>
-							<p className="text-sm mt-1">{t.transaction_date}</p>
+							<p className="text-sm mt-1">
+								{new Date(
+									t.transaction_date
+								).toLocaleDateString("en-GB", {
+									day: "2-digit",
+									month: "short",
+									year: "2-digit",
+								})}
+							</p>
 
 							<div className="flex items-center gap-2 mt-4">
 								{/* Transaction Details */}
 								<Link
-									to={`/transactionDetails/${t._id}`}
+									to={`/transaction/${t._id}`}
 									className="flex items-center gap-1 text-sm font-medium border border-gray-200 rounded-lg px-3 py-1.5 transition"
 								>
 									<Eye size={14} /> Details
 								</Link>
 								{/* Edit Transaction */}
 								<Link
-									to={`/updateTransaction/${t._id}`}
+									to={`/transaction/update/${t._id}`}
 									className="p-2 rounded-lg border border-gray-200 transition"
 								>
 									<Edit2
